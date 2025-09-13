@@ -1,0 +1,22 @@
+# 문제
+# 1. 'f5' 컬럼이 0이 아닌 데이터(행)을 구하시오.
+# 2. 앞에서 구한 데이터에 'views' 컬럼 결측치를 'views' 컬럼의 최솟값으로 채워주세요.
+# 3. 그리고 'views' 컬럼의 중앙값을 계산해 정수로 구하시오.
+
+# 풀이
+import pandas as pd
+df = pd.read_csv("type1_data_1.csv")
+
+# 0 제외
+cond = df['f5'] != 0
+df = df[cond]
+
+# 'views' 컬럼 결측치 최솟값으로 채우기
+min = df['views'].min()
+df['views'].fillna(min, inplace=True)
+
+# 'views' 컬럼 중앙값 계산
+print(inf(df['views'].median()))
+
+# 출력
+5924
