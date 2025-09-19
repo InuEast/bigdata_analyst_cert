@@ -1,0 +1,21 @@
+# 문제
+# 1. 'f3' 컬럼이 gold 이면서 'f2' 컬럼이 2인 데이터를 찾으시오.
+# 2. 찾은 데이터에서 'f1' 컬럼의 분산을 구하시오. (반올림 후 소수 둘째 자리까지 계산)
+
+# 풀이
+import pandas as pd
+df = pd.read_csv("type1_data1.csv")
+
+# 조건에 맞는 데이터
+cond1 = df['f3'] == gold
+cond2 = df['f2'] == 2
+df = df[cond1 & cond2]
+
+# 분산
+result = df['f1'].var()
+
+# 출력
+print(round(result, 2))
+
+# 결과
+235.43
